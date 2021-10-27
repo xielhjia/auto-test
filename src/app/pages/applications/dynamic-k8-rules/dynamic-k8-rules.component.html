@@ -1,0 +1,46 @@
+<!-- <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()"> -->
+  <form nz-form [formGroup]="validateForm">
+  <p> Enviroment Variables:  </p> 
+  <nz-form-item *ngFor="let control of listOfControl; let i = index">
+    <!-- <nz-form-label [nzXs]="24" [nzSm]="4" *ngIf="i === 0" [nzFor]="control.controlInstance"> -->
+    <nz-form-control  [nzXs]="24" [nzSm]="9"  [nzOffset]="1"   style="padding: 0 2px;" nzErrorTip="please input rule Key">
+      <!-- <nz-select nzShowSearch nzAllowClear nzPlaceHolder="please Select a rule">
+        <nz-option nzLabel="target" nzValue="target"></nz-option>
+        <nz-option nzLabel="containerConcurrency" nzValue="containerConcurrency"></nz-option>
+        <nz-option nzLabel="minScale" nzValue="minScale"></nz-option>
+        <nz-option nzLabel="maxScale" nzValue="maxScale"></nz-option>
+
+      </nz-select> -->
+      <input
+      class="variable-input"
+      nz-input
+      placeholder="placeholder"
+      [attr.id]="control.id"
+      [formControlName]="control.controlInstanceKey"
+      />
+    </nz-form-control>
+    <nz-form-control
+      [nzXs]="14"
+      [nzSm]="23"
+      [nzOffset]="1"
+      nzErrorTip="Please input rule value."
+    >
+      <input
+        class="variable-input"
+        nz-input
+        placeholder="placeholder"
+        [attr.id]="control.id"
+        [formControlName]="control.controlInstanceValue" 
+      />
+      <i nz-icon nzType="minus-circle-o" class="dynamic-delete-button" (click)="removeField(control, $event)"></i>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+      <button nz-button nzType="dashed" class="add-button" (click)="addField($event)">
+        <i nz-icon nzType="plus"></i>
+        Add Variable
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

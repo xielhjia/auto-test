@@ -1,0 +1,70 @@
+<div nz-row>
+  <div nz-col nzSpan="22">
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Namespace"  [(ngModel)] = "selectedNS" (ngModelChange)="namespaceChange($event)">
+      <nz-option *ngFor="let ns of listNamespace; let i = index" [nzLabel]="ns" [nzValue]="ns"></nz-option>
+    </nz-select>
+  </div>
+  <div nz-col nzSpan="2">
+      <button nz-button  nzType="primary" (click)="showModal()"  style="float: right;">
+        <i nz-icon nzType="plus-circle" nzTheme="outline"></i>
+          Create
+      </button>
+  </div>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Create App"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+  nzWidth="600px"
+>
+    <app-app-creation #childModal *nzModalContent [namespace]="selectedNS" ></app-app-creation>
+</nz-modal>
+</div>
+
+
+<nz-table #nzTable [nzData]="applications" nzTableLayout="fixed" [nzLoading]="tableLoading">
+  <thead>
+    <tr>
+      <th nzWidth="60px"></th>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Status</th>
+      <th>Age</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let data of nzTable.data">
+      <tr>
+        <td [nzExpand]="expandSet.has(data.id)" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.url }}</td>
+        <td>{{ data.status }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.reason }}</td>
+      </tr>
+
+      <tr [nzExpand]="expandSet.has(data.id)">
+        <nz-descriptions nzTitle="Application details">
+          <nz-descriptions-item nzTitle="cpuRequest">{{data.cpuRequest}}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="memoryRequest">{{data.memoryRequest}}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="autoscalingMetric">{{data.autoscalingMetric}}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="autoscalingTarget">{{data.autoscalingTarget}}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="lowerBound">{{data.lowerBound}}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="upperBound">{{data.upperBound}}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="initailScale">{{data.initailScale}}</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="scaleDownDelay">{{data.scaleDownDelay}}</nz-descriptions-item>
+          <nz-descriptions-item  *ngFor="let key of getDynamicRules(data); let i = index" nzTitle={{key}}>{{data.environment[key]}}</nz-descriptions-item>
+          <!-- <nz-descriptions-item nzTitle="variable2">variable2 value</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="variable3">variable3 value</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="variable4">variable4 value</nz-descriptions-item>
+          <nz-descriptions-item nzTitle="variable5">
+            variable5 value         
+          </nz-descriptions-item> -->
+        </nz-descriptions>
+      </tr>
+    </ng-container>
+  </tbody>
+</nz-table>

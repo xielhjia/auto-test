@@ -1,0 +1,54 @@
+<!-- <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()"> -->
+  <h3>Container Registry</h3>
+  <form nz-form [formGroup]="validateForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="name"> Registry Name</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24" nzErrorTip="please input registry name">
+        <input nz-input formControlName="name" id="name"  [(ngModel)]="globalConfig.registryName"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="url">Registry URL</nz-form-label>
+        <nz-form-control [nzSm]="10" [nzXs]="24" nzErrorTip="please input registry URL">
+          <input nz-input formControlName="url" id="url" [(ngModel)]="globalConfig.registryUrl" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="email">Email</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24" nzErrorTip="please input email">
+        <input nz-input formControlName="email" id="email" [(ngModel)]="globalConfig.email"/>
+      </nz-form-control>
+    </nz-form-item> 
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="username">User Name</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24" nzErrorTip="please input user name">
+        <input nz-input formControlName="username" id="username" [(ngModel)]="globalConfig.user" />
+      </nz-form-control>
+    </nz-form-item> 
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="password">Password</nz-form-label>
+      <nz-form-control [nzSm]="10" [nzXs]="24" nzErrorTip="please input password">
+        <input nz-input formControlName="password" id="password"  [(ngModel)]="globalConfig.password"/>
+      </nz-form-control>
+    </nz-form-item> 
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="24" >Autoscaling</nz-form-label>
+    </nz-form-item> 
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="3" [nzXs]="24" nzRequired nzFor="scalerType">Autoscaler Type</nz-form-label>
+      <nz-form-control [nzSm]="5" [nzXs]="24" nzErrorTip=""  >
+        <nz-select [ngModel]="'Horizontal Pod Autoscaler (HPA)'" formControlName="scalerType">
+          <nz-option *ngFor="let ns of listScaleType; let i = index" [nzLabel]="ns" [nzValue]="ns"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>    
+    
+    <nz-form-item>
+      <nz-form-control [nzOffset]="12" [nzSpan]="12">
+        <button nz-button nzType="primary" (click)='submitForm()'>save</button>
+      </nz-form-control>
+    </nz-form-item>
+  
+  </form>

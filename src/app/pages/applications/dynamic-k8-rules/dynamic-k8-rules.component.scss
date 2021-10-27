@@ -1,0 +1,40 @@
+.dynamic-delete-button {
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  font-size: 24px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.dynamic-delete-button:hover {
+  color: #777;
+}
+
+.variable-input {
+  width: 80%;
+  margin-right: 8px;
+  // background-color: red;
+}
+
+[nz-form] {
+  max-width: 600px;
+  // .ant-form-item-label > label {
+  // }
+}
+
+label {
+  display: inline;
+}
+
+.ant-form-item-label > label {
+  display: inline !important;
+}
+
+[nz-select] {
+  display: flex !important;
+}
+
+.add-button {
+  width: 60%;
+}

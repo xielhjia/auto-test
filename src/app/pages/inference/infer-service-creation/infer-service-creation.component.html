@@ -1,0 +1,60 @@
+<!-- <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()"> -->
+  <form nz-form [formGroup]="validateForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="inferName">Inference Service Name</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input inference name">
+        <input nz-input formControlName="inferName" id="inferName" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="imageUrl">Image URL</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input image url">
+          <input nz-input formControlName="imageUrl" id="imageUrl" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="imageVersion">Image Version</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input image version">
+          <input nz-input formControlName="imageVersion" id="imageVersion" />
+        </nz-form-control>
+      </nz-form-item>
+      
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="storageUrl">Storage URL</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input storage url">
+          <input nz-input formControlName="storageUrl" id="storageUrl" />
+        </nz-form-control>
+      </nz-form-item>  
+      
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="resourceType">GPU/CPU</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input resourceType">
+          <input nz-input formControlName="resourceType" id="resourceType" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="cpuResourceSize">CPU Resource Size</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input cpu resource size">
+          <input nz-input formControlName="cpuResourceSize" id="cpuResourceSize" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="email">GPU Resource Size</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input GPU resoruce size">
+          <input nz-input formControlName="gpuResourceSize" id="gpuResourceSize" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="className">Class Name</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input class name">
+          <input nz-input formControlName="className" id="className" />
+        </nz-form-control>
+      </nz-form-item>
+
+     <app-dynamic-scale-rules #autoscalingRulesChild> </app-dynamic-scale-rules>
+
+  
+  </form>

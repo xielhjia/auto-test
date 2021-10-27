@@ -1,0 +1,67 @@
+<!-- <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()"> -->
+  <form nz-form [formGroup]="validateForm">
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="appName"> Name</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input application name">
+        <input nz-input formControlName="appName" id="appName" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="imageUrl">Image URL</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input imageUrl">
+          <input nz-input formControlName="imageUrl" id="imageUrl" />
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzFor="cpuRequest">CPU Request (Optional)</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input cpuRequest">
+        <input nz-input formControlName="cpuRequest" id="cpuRequest" />
+      </nz-form-control>
+    </nz-form-item> 
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24"  nzFor="memoryRequest">Memory Request (Optional)</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input memoryRequest">
+        <input nz-input formControlName="memoryRequest" id="memoryRequest" />
+      </nz-form-control>
+    </nz-form-item> 
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="scaleMetric">Autoscaling Metric</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input scaleMetric">
+        <input nz-input formControlName="scaleMetric" id="scaleMetric" />
+      </nz-form-control>
+    </nz-form-item> 
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="scaleTarget">Autoscaling Target</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input autoscaling t">
+          <input nz-input formControlName="scaleTarget" id="scaleTarget" />
+        </nz-form-control>
+    </nz-form-item>    
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="lowerBound">Lower Bound</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input lower bound">
+          <input nz-input formControlName="lowerBound" id="lowerBound" />
+        </nz-form-control>
+    </nz-form-item>    
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="upperBound">Upper Bound</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input upper bound">
+          <input nz-input formControlName="upperBound" id="upperBound" />
+        </nz-form-control>
+    </nz-form-item>    
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="initialScale">Initial Scale</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input initial scale number">
+          <input nz-input formControlName="initialScale" id="initialScale" />
+        </nz-form-control>
+    </nz-form-item>    
+    <nz-form-item>
+      <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="scaleDownDelay">Scale Down Delay</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="please input scale down delay">
+          <input nz-input formControlName="scaleDownDelay" id="scaleDownDelay" />
+        </nz-form-control>
+    </nz-form-item>    
+    
+    <app-dynamic-k8-rules #dynamicRules> </app-dynamic-k8-rules>
+
+  
+  </form>
