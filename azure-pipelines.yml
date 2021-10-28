@@ -34,7 +34,7 @@ steps:
     version: 'python'
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: 'python.x'
+    versionSpec: 'python.3.x'
     addToPath: true
     architecture: 'x64'
 
