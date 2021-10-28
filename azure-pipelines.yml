@@ -10,6 +10,11 @@ trigger:
 pool:
   name: auto-test-pool
 
+strategy:
+  matrix:
+    Python37:
+      python.version: '3.7'
+
 steps:
 # - task: NodeTool@0
 #   inputs:
