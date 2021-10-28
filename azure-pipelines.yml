@@ -26,3 +26,4 @@ steps:
   inputs:
     scriptSource: 'filePath'
     scriptPath: './GUI-auto-test/operation-control.py'
+    workingDirectory: './GUI-auto-test/'
