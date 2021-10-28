@@ -10,6 +10,18 @@ trigger:
 pool:
   name: auto-test-pool
 
+
+strategy:
+  matrix:
+    Python27:
+      python.version: '2.7'
+    Python35:
+      python.version: '3.5'
+    Python36:
+      python.version: '3.6'
+    Python37:
+      python.version: '3.7'
+    
 steps:
 # - task: NodeTool@0
 #   inputs:
@@ -23,9 +35,13 @@ steps:
 #   displayName: 'npm install and build'
 
 
+
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.7'
+  displayName: 'Use Python 3.7'
+
+
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
