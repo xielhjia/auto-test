@@ -31,7 +31,7 @@ steps:
 #   displayName: 'npm install and build'
 - task: InstallPython@1
   inputs:
-    version: '$(PythonVersion)'
+    version: 'python'
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.7'
