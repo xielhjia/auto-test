@@ -26,11 +26,15 @@ steps:
 #     npm install
 #     ng build --prod
 #   displayName: 'npm install and build'
-
-
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.7'
+    addToPath: true
+    architecture: 'x64'
+
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '3.7'
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
