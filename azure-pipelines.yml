@@ -29,9 +29,13 @@ steps:
 #     npm install
 #     ng build --prod
 #   displayName: 'npm install and build'
+
+
 - task: InstallPython@1
   inputs:
     version: 'python'
+    outputdir: '$(Agent.ToolsDirectory)\python'
+    
 - task: UsePythonVersion@0
   inputs:
     versionSpec: 'python.3.x'
@@ -41,6 +45,7 @@ steps:
 # - task: UsePythonVersion@0
 #   inputs:
 #     versionSpec: '3.7'
+
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
