@@ -35,7 +35,7 @@ steps:
   inputs:
     version: 'python'
     outputdir: '$(Agent.ToolsDirectory)\python'
-  displayName: $(AGENT_TOOLSDIRECTORY)
+  displayName: 'python install1111 $(AGENT_TOOLSDIRECTORY)'
     
 - task: UsePythonVersion@0
   inputs:
