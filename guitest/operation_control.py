@@ -50,27 +50,11 @@ def getScreenShot(pcname,x, y, w,h):
 def getActiveWindowShot(picname, w, h):
     hwnd = win32gui.GetForegroundWindow()
     print('hwnd:', hwnd)
-    time.sleep(2)
-    r = win32gui.GetWindowRect(hwnd)
-    bmpFileName = 'screenshot.bmp'
+    # r = win32gui.GetWindowRect(hwnd)
+    # bmpFileName = 'screenshot.bmp'
 
     hwin = win32gui.GetDesktopWindow()
-    # 图片最左边距离主屏左上角的水平距离
-    left = win32api.GetSystemMetrics(win32con.SM_XVIRTUALSCREEN)
-    # 图片最上边距离主屏左上角的垂直距离
-    top = win32api.GetSystemMetrics(win32con.SM_YVIRTUALSCREEN)
-    hwindc = win32gui.GetWindowDC(hwin)
-    srcdc = win32ui.CreateDCFromHandle(hwindc)
-    memdc = srcdc.CreateCompatibleDC()
-    bmp = win32ui.CreateBitmap()
-    bmp.CreateCompatibleBitmap(srcdc, r[2] - r[0], r[3] - r[1])
-    memdc.SelectObject(bmp)
-    memdc.BitBlt((-r[0], top - r[1]), (r[2], r[3] - top), srcdc, (left, top), win32con.SRCCOPY)
-    bmp.SaveBitmapFile(memdc, bmpFileName)
-
-    im = Image.open(bmpFileName)
-    im = im.convert('RGB')
-    im.save(picname)
+    print(hwin)
 
 def call_ai(img):
     print('call ai function to calc elements coordinate in test_case')
