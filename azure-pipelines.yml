@@ -45,6 +45,7 @@ steps:
 
 - script: pip install -r requirements.txt
   displayName: 'Install requirements'
+  
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
