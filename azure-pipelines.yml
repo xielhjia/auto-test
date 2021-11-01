@@ -43,9 +43,11 @@ steps:
     # addToPath: true
     architecture: 'x64'
 
-# - task: UsePythonVersion@0
-#   inputs:
-#     versionSpec: '3.7'
+- script: python -m pip install --upgrade pip setuptools wheel
+  displayName: 'Install tools'
+
+- script: pip install -r guitest/requirements.txt
+  displayName: 'Install requirements'
 
 - task: PythonScript@0
   inputs:
