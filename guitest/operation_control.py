@@ -94,6 +94,7 @@ def __enum_all_wnd():
 if __name__ == "__main__":
     time.sleep(5)
     pic_name_step1 = "pic_name_step1.jpg"
+    __enum_all_wnd()
     img = getActiveWindowShot(pic_name_step1, 0, 0)
 
     load_dict = {}
