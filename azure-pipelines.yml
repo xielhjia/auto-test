@@ -10,6 +10,14 @@ trigger:
 pool:
   name: auto-test-pool
 
+strategy:
+  matrix:
+    Python37:
+      python.version: '3.7'
+
+
+
+
 steps:
 # - task: NodeTool@0
 #   inputs:
@@ -22,8 +30,25 @@ steps:
 #     ng build --prod
 #   displayName: 'npm install and build'
 
+
+# - task: InstallPython@1
+#   inputs:
+#     version: 'python'
+#     outputdir: '$(Agent.ToolsDirectory)\python'
+#   displayName: 'python install1111 $(AGENT_TOOLSDIRECTORY)'
+    
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    # addToPath: true
+    architecture: 'x64'
+
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '3.7'
+
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: 'GUI-auto-test/operation-control.py'
-    workingDirectory: 'GUI-auto-test/'
+    scriptPath: 'guitest/operation_control.py'
+    workingDirectory: 'guitest/'
