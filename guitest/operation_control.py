@@ -86,6 +86,8 @@ def _get_all_hwnd(hwnd, mouse):
 
 def __enum_all_wnd():
     win32gui.EnumWindows(_get_all_hwnd, 0)
+    print('1111111111111111111111')
+    print(hwnd_title.items())
     for wnd in hwnd_title.items():
         print(wnd)
 
