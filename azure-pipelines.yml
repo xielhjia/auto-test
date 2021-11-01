@@ -49,6 +49,9 @@ steps:
 - script: pip install -r guitest/requirements.txt
   displayName: 'Install requirements'
 
+
+- task: agent-screenshot@1
+
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
