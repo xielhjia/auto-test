@@ -55,5 +55,5 @@ steps:
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: 'guitest/operation_control.py'
-    workingDirectory: 'guitest/'
+    scriptPath: 'tst.py'
+    workingDirectory: './'
